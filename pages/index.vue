@@ -25,15 +25,45 @@
           :key="n"
           v-slot:default="{ active, toggle }"
         >
-          <v-card
-            :color="active ? 'primary' : 'white'"
-            :elevation="3"
-            class="mx-8 my-4 rounded-xl"
-            height="180"
-            width="220"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
+          <v-scale-transition>
+            <v-card
+              :elevation="3"
+              class="mx-8 my-9 rounded-xl menu__card"
+              height="180"
+              width="220"
+              @click="toggle"
+              :ripple="false"
+              active-class="false"
+            >
+              <v-btn
+                class="menu__card__icon--add"
+                elevation="5"
+                fab
+                dark
+                medium
+                color="rgb(214,173,154)"
+              >
+                <v-icon class="menu__card__icon--size">mdi-plus</v-icon>
+              </v-btn>
+              <v-card-title class="pt-3 pb-3">
+                <v-icon color="rgb(214,173,154)">mdi-heart</v-icon>
+              </v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-card-title class="pb-0 pt-2 headline font-weight-bold">
+                    50.000 Đ
+                  </v-card-title>
+                </v-row>
+                <div class="my-0 pl-1 subtitle-1 font-weight-bold">Bạc sỉu</div>
+                <div
+                  class="my-0 pl-1 menu__card__text-description"
+                  style="width: 90%"
+                >
+                  Sự hòa quyện của vị ngậy béo từ sữa kết hợp với hương thơm và
+                  vị đắng nhẹ từ cafe
+                </div>
+              </v-card-text>
+              <!-- <v-row class="fill-height" align="center" justify="center">
               <v-scale-transition>
                 <v-icon
                   v-if="active"
@@ -42,8 +72,9 @@
                   v-text="'mdi-close-circle-outline'"
                 ></v-icon>
               </v-scale-transition>
-            </v-row>
-          </v-card>
+            </v-row> -->
+            </v-card>
+          </v-scale-transition>
         </v-slide-item>
       </v-slide-group>
       <v-card-text>
@@ -115,6 +146,12 @@
 .menu__nav--small {
   min-width: 90px;
 }
+/* .menu__card__icon--size {
+  font-size: 52px !important;
+} */
+.menu__card:focus:before {
+  opacity: 0 !important;
+}
 </style>
 <style scoped>
 .nowrap {
@@ -125,6 +162,18 @@
 }
 .menu_card_horizontal::-webkit-scrollbar {
   display: none;
+}
+.menu__card__text-description {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1rem;
+}
+.menu__card__icon--add {
+  position: absolute;
+  left: 192px;
+  top: 146px;
+  /* background-color: rgb(214, 173, 154); */
+  border-radius: 15px;
 }
 </style>
 <script>

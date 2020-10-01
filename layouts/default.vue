@@ -41,7 +41,7 @@
         <v-btn color="rgb(255,255,255)" icon>
           <v-img
             class="nav__icon--small"
-            src="/img/nav__icon--coffee.png"
+            src="/img/nav__icon--cafe.png"
           ></v-img>
         </v-btn>
         <v-spacer />
@@ -115,7 +115,7 @@
   border-bottom-left-radius: 50px !important;
 }
 .extended-pos__container {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 </style>
 <style scoped>

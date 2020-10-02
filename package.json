@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev --external": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=3000 nuxt",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -20,6 +21,7 @@
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.3.0",
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.2",

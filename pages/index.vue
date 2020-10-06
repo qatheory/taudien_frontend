@@ -11,7 +11,11 @@
         centered
         color="rgb(167,91,59)"
       >
-        <v-tab class="menu__nav--small" v-for="item in items" :key="item">
+        <v-tab
+          class="menu__tab--small menu__tab__text"
+          v-for="item in items"
+          :key="item"
+        >
           {{ item }}
         </v-tab>
       </v-tabs>
@@ -37,6 +41,7 @@
                 dark
                 medium
                 color="rgb(167,91,59)"
+                @click="$store.dispatch('toggleRightDrawer')"
               >
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
@@ -57,7 +62,9 @@
                     50.000 Đ
                   </v-card-title>
                 </v-row>
-                <div class="my-0 pb-1 pl-1 subtitle-1 font-weight-bold">
+                <div
+                  class="item__name my-0 pb-1 pl-1 subtitle-1 font-weight-bold"
+                >
                   Bạc sỉu
                 </div>
                 <div
@@ -87,7 +94,7 @@
         <p class="subtitle-1 font-weight-bold">Phổ biến</p>
         <v-row>
           <v-col cols="12" sm="6" md="6" lg="4" v-for="i in 12" :key="i">
-            <v-card class="rounded-xl" elevation="5">
+            <v-card class="rounded-xl menu__list" elevation="5">
               <v-btn
                 class="menu__list__icon--add"
                 elevation="7"
@@ -95,6 +102,7 @@
                 dark
                 small
                 color="rgb(167,91,59)"
+                @click="$store.dispatch('toggleRightDrawer')"
               >
                 <v-icon class="menu__card__icon--size">mdi-plus</v-icon>
               </v-btn>
@@ -106,7 +114,7 @@
               >
               </v-img
               ><v-card-title
-                class="subtitle-1 pl-14 menu-list--padding menu__list__itemname pb-1 pt-4 font-weight-bold"
+                class="item__name subtitle-1 pl-14 menu-list--padding menu__list__itemname pb-1 pt-4 font-weight-bold"
               >
                 Cà phê phin
               </v-card-title>
@@ -128,7 +136,7 @@
   </v-row>
 </template>
 <style>
-.menu__nav--small {
+.menu__tab--small {
   min-width: 90px;
 }
 .menu__card:focus:before {
@@ -150,7 +158,7 @@
 }
 .menu__text-description {
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1rem;
 }
 .menu__card__textfield {
@@ -186,6 +194,20 @@
 }
 .menu-text--width70 {
   width: 70%;
+}
+.menu__tab__text {
+  font-family: 'Bellota', cursive;
+  font-weight: 700;
+}
+.menu__card .v-card__title,
+.menu__card .item__name,
+.menu__list .v-card__title,
+.menu__list .item__name {
+  font-family: 'Sansita Swashed', cursive !important;
+}
+.menu__card .menu__text-description,
+.menu__list .menu__text-description {
+  font-family: 'Charm', cursive !important;
 }
 </style>
 <script>

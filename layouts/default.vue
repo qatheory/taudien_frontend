@@ -48,7 +48,7 @@
         <v-btn
           color="rgb(255,255,255)"
           icon
-          @click.stop="rightDrawer = !rightDrawer"
+          @click.stop="$store.dispatch('toggleRightDrawer')"
         >
           <v-icon>mdi-menu</v-icon>
         </v-btn>
@@ -73,6 +73,7 @@
             solo
             color="white"
             hide-details
+            class="nav__search"
           ></v-text-field>
         </div>
       </v-row>
@@ -82,16 +83,9 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+
+    <menuItemDrawer />
+
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
@@ -135,9 +129,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+.nav__search {
+  font-family: 'Charm', cursive !important;
+}
 </style>
 <script>
+import menuItemDrawer from '@/components/layout/menuItemDrawer'
 export default {
+  components: { menuItemDrawer },
   data() {
     return {
       clipped: false,
@@ -156,8 +155,7 @@ export default {
         },
       ],
       miniVariant: false,
-      right: false,
-      rightDrawer: false,
+
       title: 'Vuetify.js',
     }
   },
